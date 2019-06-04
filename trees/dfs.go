@@ -1,23 +1,15 @@
-package main
+package trees
 
-import (
-	"errors"
-)
-
-func depthFirstSearch(t *tree, lookingFor string) (*tree, error) {
+// DepthFirstSearch applies a function to a tree, depth first (current node value -> left -> right)
+func DepthFirstSearch(t *Tree, fn func(*Tree)) {
 	if t == nil {
-		return nil, errors.New("end of tree reached")
+		return
 	}
 
-	if n, _ := depthFirstSearch(t.left, lookingFor); n != nil {
-		return n, nil
-	} else if n, _ := depthFirstSearch(t.right, lookingFor); n != nil {
-		return n, nil
+	if fn != nil {
+		fn(t)
 	}
 
-	if t.value == lookingFor {
-		return t, nil
-	}
-
-	return nil, errors.New("not found")
+	DepthFirstSearch(t.left, fn)
+	DepthFirstSearch(t.right, fn)
 }

@@ -1,9 +1,9 @@
-package main
+package trees
 
 import "errors"
 
-func breadthFirstSearch(t *tree, lookingFor string) (*tree, error) {
-	q := []*tree{t}
+func breadthFirstSearch(t *Tree, lookingFor string) (*Tree, error) {
+	q := []*Tree{t}
 
 	for len(q) > 0 {
 		node := q[0]
