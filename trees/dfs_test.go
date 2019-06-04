@@ -9,8 +9,9 @@ func TestDFS(t *testing.T) {
 
 	output := ""
 
-	demoTree.DepthFirstSearch(func(currentTree *Tree) {
+	demoTree.DepthFirstSearch(func(currentTree *Tree) (quit bool) {
 		output = output + currentTree.value
+		return false
 	})
 
 	expected := "ABCDEFGHIJKLMNO"
