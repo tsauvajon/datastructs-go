@@ -9,7 +9,7 @@ func TestDFS(t *testing.T) {
 
 	output := ""
 
-	DepthFirstSearch(demoTree, func(currentTree *Tree) {
+	demoTree.DepthFirstSearch(func(currentTree *Tree) {
 		output = output + currentTree.value
 	})
 

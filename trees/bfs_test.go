@@ -9,7 +9,7 @@ func TestBFS(t *testing.T) {
 
 	output := ""
 
-	if err := BreadthFirstSearch(demoTree, func(currentTree *Tree) {
+	if err := demoTree.BreadthFirstSearch(func(currentTree *Tree) {
 		output = output + currentTree.value
 	}); err != nil {
 		t.Errorf("the function failed: %v", err)
