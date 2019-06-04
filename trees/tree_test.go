@@ -1,5 +1,7 @@
 package trees
 
+import "testing"
+
 func createTree() *Tree {
 	t := &Tree{
 		value: "A",
@@ -48,4 +50,22 @@ func createTree() *Tree {
 	}
 
 	return t
+}
+
+func TestTree (t *testing.T) {
+	tree := createTree()
+
+	actualLeft := tree.left.left.left
+	actualRight := tree.right.right.right
+
+	expectedLeftVal := "D"
+	expectedRightVal := "O"
+
+	if actualLeft.value != expectedLeftVal {
+		t.Errorf("expected leftmost node to be %s, got %s", expectedLeftVal, actualLeft.value)
+	}
+
+	if actualRight.value != expectedRightVal {
+		t.Errorf("expected rightmost node to be %s, got %s", expectedRightVal, actualRight.value)
+	}
 }
