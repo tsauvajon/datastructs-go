@@ -2,7 +2,8 @@ package trees
 
 import "errors"
 
-// BreadthFirstSearch applies a function to a tree, breadth first (current node value -> all of its children -> all of their children)
+// BreadthFirstSearch applies a function to a tree, breadth first
+// (current node value -> all of its children -> all of their children)
 func (t *Tree) BreadthFirstSearch(fn func(*Tree)(quit bool)) error {
 	if t == nil {
 		return errors.New("t cannot be nil")

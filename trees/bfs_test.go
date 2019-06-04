@@ -25,11 +25,13 @@ func TestBrowsingBFS(t *testing.T) {
 }
 
 // Tess that BFS can find a value
+// TODO: abstract so it can be run with any pair of values (lf/found), with
+// any algorithm for any tree
 func TestFindingBFS(t *testing.T) {
 	demoTree := createTree()
 
 	var (
-		lf string
+		lf    string
 		found bool
 	)
 
@@ -41,7 +43,7 @@ func TestFindingBFS(t *testing.T) {
 			}
 			return false
 		}
-	}	
+	}
 
 	lf = "F"
 	found = false
