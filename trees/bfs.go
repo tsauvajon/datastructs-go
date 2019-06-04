@@ -2,7 +2,12 @@ package trees
 
 import "errors"
 
-func breadthFirstSearch(t *Tree, lookingFor string) (*Tree, error) {
+// BreadthFirstSearch applies a function to a tree, breadth first (current node value -> all of its children -> all of their children)
+func BreadthFirstSearch(t *Tree, fn func(*Tree)) error {
+	if t == nil {
+		return errors.New("t cannot be nil")
+	}
+
 	q := []*Tree{t}
 
 	for len(q) > 0 {
@@ -16,10 +21,8 @@ func breadthFirstSearch(t *Tree, lookingFor string) (*Tree, error) {
 			q = append(q, node.right)
 		}
 
-		if node.value == lookingFor {
-			return node, nil
-		}
+		fn(node)
 	}
 
-	return nil, errors.New("not found")
+	return nil
 }
