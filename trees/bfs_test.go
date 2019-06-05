@@ -1,8 +1,6 @@
 package trees
 
-import (
-	"testing"
-)
+import "testing"
 
 // Tests that BFS browses the tree in the right order
 func TestBrowsingBFS(t *testing.T) {
@@ -25,8 +23,6 @@ func TestBrowsingBFS(t *testing.T) {
 }
 
 // Tess that BFS can find a value
-// TODO: abstract so it can be run with any pair of values (lf/found), with
-// any algorithm for any tree
 func TestFindingBFS(t *testing.T) {
 	demoTree := createTree()
 
@@ -64,6 +60,6 @@ func TestFindingBFS(t *testing.T) {
 	}
 
 	if found {
-		t.Errorf("should have found %s and did not", lf)
+		t.Errorf("should not have found %s but it did", lf)
 	}
 }
